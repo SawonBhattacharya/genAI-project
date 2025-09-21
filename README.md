@@ -35,12 +35,35 @@ cd react-sql-agent
 ```
 
 ### 2️⃣ Setup Virtual Environment
-
+#### Code Base
 ```bash
 python3 -m venv .venv
 source .venv/bin/activate   # Linux/Mac
 .venv\Scripts\activate      # Windows
 ```
+#### Data Preparation
+##### Setup of SQL
+```bash
+sudo apt update
+sudo apt upgrade -y
+sudo apt install -y mysql-server mysql-client
+sudo systemctl enable --now mysql
+```
+##### Setup of SQL
+```bash
+sudo apt update
+sudo apt upgrade -y
+sudo apt install -y mysql-server mysql-client
+sudo systemctl enable --now mysql
+```
+
+#### Create DB
+```bash
+CREATE DATABASE rpsg_rag;
+CREATE USER 'rpsg_user'@'localhost' IDENTIFIED BY 'RPSG_rag1';
+GRANT ALL PRIVILEGES ON rpsg_rag.* TO 'rpsg_user'@'localhost';
+FLUSH PRIVILEGES;
+EXIT;
 
 ### 3️⃣ Install Dependencies
 
@@ -62,12 +85,20 @@ GROQ_API_KEY=your_groq_api_key
 ```
 
 Add The following two lines in `react_agent.py` file:
-```
+```bash
 MYSQL_PASSWORD = os.getenv("MYSQL_PASSWORD") #("Your DB Password")
 GROQ_API_KEY = os.getenv("GROQ_API_KEY") #("Your GROQ API Key")
 ```
 ### 5️⃣ Run Locally
 
+#### Load Data
+Place /data folder in the root folder then run the following commands:
+
+```bash
+python3 create_db.py
+python3 load_data.py
+```
+#### Start Application
 ```bash
 streamlit run react_app.py
 ```
