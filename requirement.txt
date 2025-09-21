@@ -1,0 +1,14 @@
+SQLAlchemy>=1.4
+pymysql
+python-dotenv
+pandas
+alembic  # optional for migrations later
+groq
+cryptography
+openpyxl
+# chromadb
+# sentence-transformers
+langchain 
+langchain-experimental
+langchain-groq
+streamlit
