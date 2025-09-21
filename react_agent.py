@@ -18,8 +18,8 @@ MYSQL_HOST = os.getenv("MYSQL_HOST", "localhost")
 MYSQL_PORT = os.getenv("MYSQL_PORT", "3306")
 MYSQL_DB = os.getenv("MYSQL_DB", "rpsg_rag")
 MYSQL_USER = os.getenv("MYSQL_USER", "rpsg_user")
-MYSQL_PASSWORD = os.getenv("MYSQL_PASSWORD", "RPSG_rag1")
-GROQ_API_KEY = os.getenv("GROQ_API_KEY","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")
+MYSQL_PASSWORD = os.getenv("MYSQL_PASSWORD","Your DB Password")
+GROQ_API_KEY = os.getenv("GROQ_API_KEY","Your GROQ Password")
 
 def get_connection():
     """Create and return a SQLAlchemy engine for MySQL."""
